@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style3.css" />
+    <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+  </head>
+  <body>
+    <h1>CLIENT PROFILE</h1>
+    <hr />
+    <br /><br />
+   
+    <table style="width:100%">
+      <tr>
+        <th>FIRSTNAME</th>
+        <th>LASTNAME</th> 
+        <th>ADDRES</th>
+        <th>AADHAR</th>
+        <th>PAN</th>
+      </tr>
+      <tr>
+        <td><p id="firstName"></p></td>
+        <td><p id="lastName"></p></td>
+        <td><p id="address"></p></td>
+        <td><p id="aadhar"></p></td>
+        <td><p id="pan"></p></td>
+      </tr>
+     
+    </table>
+    <p align="right">
+      <input
+        type="submit"
+        id="go"
+        name=""
+        value="GO BACK"
+        onclick="window.location.href='nextpage.html' "
+      />
+    </p>
+  </body>
+  <script>
+      //getting the index
+    let index = window.location.search.substring(1).split("=")[1];
+
+    let users = JSON.parse(localStorage.getItem("users"));
+
+    let user = users[index];
+
+    document.getElementById("firstName").innerHTML = user["firstName"];
+  
+    document.getElementById("lastName").innerHTML = user["lastName"];
+
+    document.getElementById("address").innerHTML = user["address"];
+
+    document.getElementById("aadhar").innerHTML = user["aadhar"];
+
+    document.getElementById("pan").innerHTML = user["pan"];
+
+  </script>
+</html>
